@@ -1,0 +1,138 @@
+/* Instituto Raízes do Bairro — folha de estilo (mobile-first) */
+:root {
+  --mata: #23402F;      /* verde escuro: textos de destaque e fundo do rodapé */
+  --folha: #3F7A50;     /* verde médio: links e botões */
+  --broto: #E3EEDC;     /* verde claro: faixas de fundo */
+  --girassol: #E8B931;  /* amarelo: foco e detalhes */
+  --terra: #7A4E33;     /* marrom: categorias */
+  --tinta: #1C2620;     /* texto principal */
+  --papel: #FBFCF9;     /* fundo */
+  --fonte-titulo: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --fonte-texto: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--tinta);
+  background: var(--papel);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+picture { display: block; }
+
+h1, h2, h3 { font-family: var(--fonte-titulo); line-height: 1.15; color: var(--mata); margin: 0 0 .6em; }
+h1 { font-size: clamp(2.2rem, 7vw, 4rem); font-weight: 700; letter-spacing: -.02em; }
+h2 { font-size: clamp(1.6rem, 4.5vw, 2.4rem); font-weight: 700; }
+h3 { font-size: 1.25rem; font-weight: 500; }
+p, li { max-width: 68ch; }
+
+a { color: var(--folha); }
+a:hover { color: var(--mata); }
+:focus-visible { outline: 3px solid var(--girassol); outline-offset: 3px; }
+
+.pular { position: absolute; left: -999px; top: 0; background: var(--mata); color: #fff; padding: .6rem 1rem; z-index: 10; }
+.pular:focus { left: 1rem; }
+
+/* Cabeçalho */
+.topo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--broto); }
+.marca { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--mata); font-family: var(--fonte-titulo); font-weight: 700; font-size: 1.1rem; }
+.topo ul, .rodape ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
+.topo nav a { text-decoration: none; color: var(--tinta); font-weight: 600; padding: .3rem 0; }
+.topo nav a[aria-current="page"] { color: var(--mata); box-shadow: inset 0 -3px 0 var(--girassol); }
+
+/* Hero: o elemento marcante do site */
+.hero { display: grid; gap: 1.5rem; padding: 2rem 1.25rem; }
+.hero-texto p { font-size: 1.15rem; }
+.acoes { display: flex; flex-wrap: wrap; gap: .75rem; }
+.hero-imagem img { border-radius: 0 0 0 80px; }
+
+.botao { display: inline-block; background: var(--folha); color: #fff; font-weight: 600; text-decoration: none; padding: .75rem 1.3rem; border: 2px solid var(--folha); border-radius: 999px; font: inherit; font-weight: 600; cursor: pointer; }
+.botao:hover { background: var(--mata); border-color: var(--mata); color: #fff; }
+.botao-secundario { background: transparent; color: var(--mata); }
+.botao-secundario:hover { background: var(--broto); color: var(--mata); }
+
+/* Números */
+.numeros { background: var(--mata); color: #fff; padding: 2rem 1.25rem; }
+.numeros h2 { color: #fff; }
+.numeros dl, .indicadores { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 0; }
+.numeros dt { order: 2; font-size: .95rem; }
+.numeros div, .indicadores div { display: flex; flex-direction: column; }
+.numeros dd { order: 1; margin: 0; font-family: var(--fonte-titulo); font-size: 2.6rem; font-weight: 700; color: var(--girassol); }
+
+/* Blocos de conteúdo */
+.bloco { padding: 2.5rem 1.25rem; }
+.faixa { background: var(--broto); }
+.tres-colunas, .duas-colunas { display: grid; gap: 1.5rem; }
+figure { margin: 0; }
+figcaption { font-size: .9rem; margin-top: .5rem; color: #4a5a50; }
+
+.linha-do-tempo { list-style: none; padding: 0; margin: 0; border-left: 3px solid var(--folha); }
+.linha-do-tempo li { padding: 0 0 1rem 1.25rem; }
+.linha-do-tempo h3 { margin-bottom: .2rem; }
+
+.lista-equipe, .documentos { padding-left: 1.1rem; }
+address { font-style: normal; }
+
+/* Projetos */
+.atalhos { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.atalhos a { display: inline-block; padding: .35rem .9rem; border: 2px solid var(--folha); border-radius: 999px; text-decoration: none; font-weight: 600; }
+.projeto { display: grid; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--broto); }
+.projeto img { border-radius: 12px; }
+.categoria { color: var(--terra); font-weight: 600; margin: 0 0 .2rem; }
+.indicadores dt { font-size: .9rem; }
+.indicadores dd { margin: 0; font-family: var(--fonte-titulo); font-size: 1.8rem; font-weight: 700; color: var(--mata); }
+.passos { padding-left: 1.3rem; }
+.campanha { background: #fff; border: 2px solid var(--girassol); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem; }
+.campanha label { font-weight: 600; display: block; }
+progress { width: 100%; height: 1.2rem; accent-color: var(--folha); }
+
+/* Formulário */
+.cadastro { display: grid; gap: 2rem; }
+.cadastro-intro img { border-radius: 12px; margin-top: 1rem; }
+.formulario fieldset { border: 1px solid #c9d6c4; border-radius: 12px; padding: 1rem 1.25rem 1.25rem; margin: 0 0 1.25rem; background: #fff; }
+.formulario legend { font-family: var(--fonte-titulo); font-weight: 700; color: var(--mata); padding: 0 .4rem; font-size: 1.15rem; }
+.campo { display: flex; flex-direction: column; gap: .3rem; margin-bottom: 1rem; }
+.campo label { font-weight: 600; }
+.campo small { color: #4a5a50; }
+input, select, textarea { font: inherit; padding: .65rem .8rem; border: 2px solid #9fb59a; border-radius: 8px; background: #fff; color: var(--tinta); width: 100%; }
+input[type="radio"], input[type="checkbox"] { width: auto; accent-color: var(--folha); }
+input:user-invalid, select:user-invalid { border-color: #B3261E; }
+abbr[title] { text-decoration: none; color: #B3261E; }
+.opcoes { display: grid; gap: .4rem; margin-bottom: 1rem; }
+.opcoes label, .aceite { display: flex; align-items: center; gap: .5rem; }
+.aceite { margin-top: .5rem; }
+.aviso { font-size: .95rem; }
+.botoes-form { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+/* Rodapé */
+.rodape { background: var(--mata); color: #fff; padding: 1.5rem 1.25rem; }
+.rodape a { color: var(--girassol); }
+
+/* Tablet */
+@media (min-width: 48em) {
+  .topo, .hero, .numeros, .bloco, .rodape { padding-left: 3rem; padding-right: 3rem; }
+  .numeros dl { grid-template-columns: repeat(4, 1fr); }
+  .duas-colunas { grid-template-columns: 1fr 1fr; align-items: start; }
+  .projeto { grid-template-columns: 2fr 3fr; align-items: center; }
+  .indicadores { max-width: 24rem; }
+  .formulario fieldset { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; }
+  .formulario fieldset > .campo, .formulario fieldset > .opcoes, .formulario fieldset > .aceite { grid-column: span 2; }
+  .formulario fieldset > .campo-curto { grid-column: span 1; }
+}
+
+/* Desktop */
+@media (min-width: 64em) {
+  .hero { grid-template-columns: 1fr 1.2fr; align-items: center; padding-top: 3rem; padding-bottom: 3rem; }
+  .tres-colunas { grid-template-columns: repeat(3, 1fr); }
+  .cadastro { grid-template-columns: 1fr 1.6fr; align-items: start; }
+  .rodape { display: flex; justify-content: space-between; align-items: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
